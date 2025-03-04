@@ -6,7 +6,7 @@ from jinja2 import Template
 import ollama
 
 DATA_FOLDER = "../data"
-CSV_OUTPUT_PATH = "mistral_output.csv"
+CSV_OUTPUT_PATH = "mistral2_output.csv"
 
 def extract_people_count(text, filename):
     """Extracts the number of people in a ski outing using Llama via Ollama."""
