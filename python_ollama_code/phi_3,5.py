@@ -47,7 +47,13 @@ def extract_people_count(text, filename):
 
     try:
         # Send request to Ollama
-        result = ollama.chat(model=MODEL_NAME, messages=[{"role": "user", "content": prompt}])
+        result = ollama.chat(model=MODEL_NAME, messages=[{"role": "user", "content": prompt}],
+        options={
+            "temperature": 0.2,  # Keep responses precise and avoid randomness.
+            "top_k": 20,  # Select from the top 20 most likely words (ensures consistency).
+            "top_p": 0.5,  # Limit responses to high-confidence words.
+            "repeat_penalty": 1.2  # Avoid redundant or looping responses.
+        })
         print(result)
 
         # Validate response
